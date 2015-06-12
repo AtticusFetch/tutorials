@@ -1,0 +1,20 @@
+{
+  "name": "directory-backbone-bootstrap",
+  "version": "1.0.0",
+  "description": "\"Backbone Directory\" is a simple Employee Directory application built with [Backbone.js](http://backbonejs.org) and [Twitter Bootstrap] (http://twitter.github.io/bootstrap/).",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -a 0.0.0.0 -p 8000 -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccoenraets/directory-backbone-bootstrap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccoenraets/directory-backbone-bootstrap/issues"
+  },
+  "homepage": "https://github.com/ccoenraets/directory-backbone-bootstrap#readme"
+}

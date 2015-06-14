@@ -79,16 +79,27 @@ directory.Router = Backbone.Router.extend({
     },
 
     orgChart: function () {
+        /*var orgChart = new directory.EmployeeCollection();
+        orgChart.fetch({data: {name: ""}});*/
         directory.orgChartView = new directory.OrgChartView();
         directory.orgChartView.render();
+
         this.$content.html(directory.orgChartView.el);
+
+        //this.$content.html(directory.orgChartView.el);
         directory.shellView.selectMenuItem('org-chart');
+
+        /*employee.fetch({
+            success: function (data) {
+                self.$content.html(new directory.EmployeeOrgView({model: data}).render().el);
+            }
+        });*/
     }
 
 });
 
 $(document).on("ready", function () {
-    directory.loadTemplates(["HomeView", "ContactView", "ShellView", "EmployeeView", "EmployeeSummaryView", "EmployeeListItemView", "OrgChartView", "EmployeeOrgView"],
+    directory.loadTemplates(["HomeView", "ContactView", "ShellView", "EmployeeView", "EmployeeSummaryView", "EmployeeListItemView", "EmployeeOrgView"],
         function () {
             directory.router = new directory.Router();
             Backbone.history.start();

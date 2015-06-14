@@ -1,31 +1,21 @@
 directory.OrgChartView = Backbone.View.extend({
-    tagName:"div",
-
-    initialize: function () {
-        this.orgEmployees = new directory.EmployeeCollection();
-        this.orgEmployeesView = new directory.EmployeeOrgView({model: this.orgEmployees, className: 'tmp'});
-    },
-
     render: function () {
-        this.$el.html(this.template());
-        $('.org-container', this.el).append(this.orgEmployeesView.render().el);
+        var self = this;
+        for (var i = 1; i < directory.store.employees.length; i ++) {
+            var employee = new directory.Employee({id: i});
+            employee.fetch({
+                success: function (data) {
+                    self.$el.append(new directory.EmployeeOrgView({model: data}).render().el);
+                }
+            });
+        }
         return this;
     }
-
 });
 
 directory.EmployeeOrgView = Backbone.View.extend({
-    tagName:"div",
-
-    initialize:function () {
-        this.model.on("change", this.render, this);
-        this.model.on("destroy", this.close, this);
-    },
-
-    render:function () {
-        var data = _.clone(this.model.attributes);
-        data.id = this.model.id;
-        this.$el.html(this.template(data));
+    render: function () {
+        this.$el.html(this.template(this.model.attributes));
         return this;
     }
 });

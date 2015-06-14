@@ -19,3 +19,7 @@ body {
 .no-reports {
     display: none;
 }
+
+.org-container {
+    margin-top: 50px;
+}
